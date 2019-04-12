@@ -20,6 +20,7 @@ kubectl create -f db-service.yaml
 kubectl create -f authorization-deployment.yaml
 kubectl create -f utilisateur-deployment.yaml
 kubectl create -f db-deployment.yaml
+kubectl create -f db-secret
 kubectl create -f debug.yaml (pour debugger)
 ```
 
@@ -34,12 +35,13 @@ Executer la configuration de la base de données comme décrit ici https://githu
 
 # Kubernetes commandes
 
-Lister les pods, deploiements, services, tout :
+Lister les pods, deploiements, services, secrets tout :
 ```
 kubectl get po
 kubectl get deployment
 kubectl get svc
 kubectl get all
+kubectl get secret
 ```
 
 Logs d'un pod :
@@ -59,6 +61,20 @@ bubectl delete svc --all
 
 Connexion a un container:
 ```kubectl exec -ti db-deployment-<id> sh```
+
+Description d'un secret:
+```kubectl describe secret db-secret```
+
+Specification d'un secret:
+```kubectl get secret db-secret -o yaml```
+
+## Creer un secret
+Creation d'un secret pour securiser le mot de passe ROOT pour l'acces a la base de donnees
+\
+Encrypter le mot de passe en base64
+```echo -n 'admin' | base64```
+Copier le code dans la configuration db-secret.yaml
+
 
 # Lister les utilisateurs sur un navigateur web
 
