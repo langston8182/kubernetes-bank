@@ -17,4 +17,7 @@ spec:
         image: mariadb
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: admin
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: db-password
