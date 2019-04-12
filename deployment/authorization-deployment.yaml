@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authorization-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authorization
+  template:
+    metadata:
+      labels:
+        app: authorization
+    spec:
+      containers:
+      - name: authorization
+        image: langston8182/bank-oauth2-authorization-server:1.0.0-SNAPSHOT
+        imagePullPolicy: Always

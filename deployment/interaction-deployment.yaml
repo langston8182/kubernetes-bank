@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: interaction-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-interaction
+  template:
+    metadata:
+      labels:
+        app: service-interaction
+    spec:
+      containers:
+      - name: service-interaction
+        image: langston8182/service-interaction:1.0.0-SNAPSHOT
+        imagePullPolicy: Always

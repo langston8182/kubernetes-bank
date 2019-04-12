@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utilisateur-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-utilisateur
+  template:
+    metadata:
+      labels:
+        app: service-utilisateur
+    spec:
+      containers:
+      - name: service-utilisateur
+        image: langston8182/service-utilisateur:1.0.0-SNAPSHOT
+        imagePullPolicy: Always
+        
