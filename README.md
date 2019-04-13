@@ -19,6 +19,7 @@ kubectl create -f authorization-deployment.yaml
 kubectl create -f authorization-cm.yaml
 kubectl create -f utilisateur-service.yaml
 kubectl create -f utilisateur-deployment.yaml
+kubectl create -f utilisateur-cm.yaml
 kubectl create -f db-service.yaml
 kubectl create -f db-deployment.yaml
 kubectl create -f db-secret

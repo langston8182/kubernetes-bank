@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: utilisateur
+data:
+  application.yaml: |-
+    userInfoUri: http://172.21.0.1:8090/auth/user/me
