@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: interaction
+data:
+  application.yaml: |-
+    security:
+      oauth2:
+        client:
+          grantType: authorization_code
+          clientId: client
+          # 172.21.0.1:8090 ou minikube ip(192.168.99.100:30090) si le service tourne dans un container ou k8s, localhost sinon
+          accessTokenUri: http://192.168.99.100:30090/auth/oauth/token
+          userAuthorizationUri: http://192.168.99.100:30090/auth/oauth/authorize
+          preEstablishedRedirectUri: http://192.168.99.100:30090/login
+        resource:
+          userInfoUri: http://192.168.99.100:30090/auth/user/me
+    url:
+      # 172.20.0.1:8100 ou minikube ip(192.168.99.100:8100) si le service tourne dans un container ou k8s, localhost sinon
+      service-utilisateur: http://utilisateur-service:8100/utilisateurs
