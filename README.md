@@ -41,6 +41,8 @@ Executer la configuration de la base de données comme décrit ici https://githu
 Prise en compte de la modification d'un fichier de configuration k8s
 ```kubectl replace -f nom_du_fichier```
 
+Deployer la configuration de tous les fichier d'un repertoire recursivement
+```kubectl create -f . -R```
 
 Lister les pods, deploiements, services, secrets, configMap tout :
 ```
