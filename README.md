@@ -37,6 +37,10 @@ Executer la configuration de la base de données comme décrit ici https://githu
 
 # Kubernetes commandes
 
+Prise en compte de la modification d'un fichier de configuration k8s
+```kubectl replace -f nom_du_fichier```
+
+
 Lister les pods, deploiements, services, secrets, configMap tout :
 ```
 kubectl get po
