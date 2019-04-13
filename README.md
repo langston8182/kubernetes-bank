@@ -15,12 +15,14 @@ Configuration kubernetes permettant de déployer l'ensemble des microservices de
 Deployer les service et deploiements
 ```
 kubectl create -f authorization-service.yaml
-kubectl create -f utilisateur-service.yaml
-kubectl create -f db-service.yaml
 kubectl create -f authorization-deployment.yaml
+kubectl create -f authorization-cm.yaml
+kubectl create -f utilisateur-service.yaml
 kubectl create -f utilisateur-deployment.yaml
+kubectl create -f db-service.yaml
 kubectl create -f db-deployment.yaml
 kubectl create -f db-secret
+kubectl create -f role.yaml
 kubectl create -f debug.yaml (pour debugger)
 ```
 
@@ -35,13 +37,14 @@ Executer la configuration de la base de données comme décrit ici https://githu
 
 # Kubernetes commandes
 
-Lister les pods, deploiements, services, secrets tout :
+Lister les pods, deploiements, services, secrets, configMap tout :
 ```
 kubectl get po
 kubectl get deployment
 kubectl get svc
 kubectl get all
 kubectl get secret
+kubectl get cm
 ```
 
 Logs d'un pod :
@@ -74,7 +77,6 @@ Creation d'un secret pour securiser le mot de passe ROOT pour l'acces a la base 
 Encrypter le mot de passe en base64
 ```echo -n 'admin' | base64```
 Copier le code dans la configuration db-secret.yaml
-
 
 # Lister les utilisateurs sur un navigateur web
 
