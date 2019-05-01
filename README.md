@@ -27,7 +27,7 @@ kubectl create -f role.yaml
 kubectl create -f debug.yaml (pour debugger)
 ```
 
-Executer la configuration de la base de données comme décrit ici https://github.com/langston8182/service-interaction en se connectant au pod de la base de donnée
+Executer la configuration de la base de données comme décrit ici https://github.com/langston8182/bank-oauth2-authorization-server en se connectant au pod de la base de donnée
 
 ```kubectl exec -ti db-deployment-<id> sh```
 
